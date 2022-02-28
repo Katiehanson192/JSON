@@ -1,3 +1,6 @@
+#learning how to create a map of earthquakes in a day 
+#map pulls up in internet browser
+
 import json
 
 infile = open('eq_data_1_day_m1.json', 'r')
