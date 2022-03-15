@@ -63,7 +63,8 @@ for i in original_list:
 
 numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 
-
+newlist = [int(i) for i in numbers if i>0]
+print(newlist)
 
 
 ## 2 create a list of integers which specify the length of each word in
@@ -71,7 +72,8 @@ numbers = [34.6, -203.4, 44.9, 68.3, -12.2, 44.6, 12.7]
 
 sentence = "the quick brown fox jumps over the lazy dog"
 words = sentence.split()
-
+letters =[len(x) for x in words if x != "the"]
+print(letters)
 
 
 ## Given dictionary is consisted of vehicles and their weights in kilograms. 
@@ -80,3 +82,6 @@ words = sentence.split()
 
 dict={"Sedan": 1500, "SUV": 2000, "Pickup": 2500, "Minivan": 1600, "Van": 2400, 
 "Semi": 13600, "Bicycle": 7, "Motorcycle": 110}
+
+new_list = [i.upper() for i in dict.keys() if dict[i]< 5000]
+print(new_list)

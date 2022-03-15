@@ -12,6 +12,7 @@ json.dump(eq_data, outfile, indent=4) #make more readable
 
 list_of_eqs = eq_data["features"]
 
+#print(list_of_eqs)
 
 mags,lons,lats = [],[],[] #creating 3 lists: magnitude, longitude, latitude
 for eq in list_of_eqs:
@@ -24,7 +25,8 @@ for eq in list_of_eqs:
     lons.append(lon)
     lats.append(lat)
 
-print(mags[:10])
+print(mags)
+'''
 print(lons[:10])
 print(lats[:10])
 
@@ -37,3 +39,4 @@ my_layout = Layout(title = 'Global Eatthquakes')
 fig = {'data': data, 'layout': my_layout}
 
 offline.plot(fig, filename= 'global_earthquakes.html')
+'''
