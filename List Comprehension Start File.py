@@ -18,7 +18,7 @@ for i in old_list:
 
 #You can obtain the same thing using list comprehension:
 
-# new_list = [expression(i) for i in old_list if filter(i)]
+# new_list = [expression(i) for i in old_list if filter(i)] #filter = optional 
 
 
 #The list comprehension starts with a '[' and ']', to help you remember that the
@@ -33,16 +33,30 @@ for i in old_list:
         expression '''
 		
 		
-
-
 #Which corresponds to:
 
 #*result*  = [*transform*    *iteration*         *filter*     ]
 
 #The filter part answers the question if the item should be transformed. '''
 
-#1) creating a simple list of 10 numbers using Range()
+        #Example
+        
+        #classic way
+old_list = [1,2,3,4,5]
+new_list = []
 
+for i in old_list:
+    i = i**2
+    new_list.append(i)
+
+print(new_list)
+
+new_list =[i**2 for i in old_list]  #[expression iteration (don't have a condition for this statement)]
+print(new_list)
+
+#1) creating a simple list of 10 numbers using Range()
+x = [i for i in range(10)] #don't have to have a starting list
+print(x)
 
 
 # Output -[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -53,7 +67,8 @@ for i in old_list:
 
 #2) creating a list that evaluates an expression
 
-
+squares = [x**2 for x in range(10)]  #** = to the power of (^)
+print(squares)
 
 # Output -[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
 
@@ -62,7 +77,9 @@ for i in old_list:
 
 
 #3) creating a list from another list
-
+list1 = [3,4,5]
+multiplied = [item*3 for item in list1]
+print(multiplied)
 
 
 #[9,12,15]
@@ -71,7 +88,10 @@ for i in old_list:
 
 # 4) using list comprehension for string manipulation
 
-
+listofWords = ['This', 'is', 'a', 'list', 'of', 'words']
+    #trying to print out the first letter of each word!
+newlist1 = [i[0] for i in listofWords]
+print(newlist1)
 
 
 # Output - ['t', 'i', 'a', 'l', 'o', 'w']
@@ -79,11 +99,13 @@ for i in old_list:
 
 
 # 5) Let's show how easy you can convert lower case / upper case letters.
-
+lower = [x.lower() for x in ['A', 'B', 'C']]
+print(lower)
 
 #Output 1 - ['a', 'b', 'c']
 
-
+upper = [x.upper() for x in lower]
+print(upper)
 # Output 2 - ['A', 'B', 'C']
 
 
@@ -92,17 +114,22 @@ for i in old_list:
 
 #6) Creating a list based on a condition
 
+#only put numbers divisable by 2 in new list
+new_range = [i*i for i in range(5) if i % 2==0]
 
+print(new_range) 
 
 #Output - [0, 4, 16]
 
 
 
 
-# 7) Extracting numbers only from a string and putting it in a list
+# 7) Extracting NUMBERS ONLY from a string and putting it in a list
+string = "Hello 12345 World"
 
 
-
+new_string = [i for i in string if i.isdigit()]
+print(new_string)
 # Output - ['1', '2', '3', '4', '5']
 
 
@@ -124,7 +151,14 @@ Save the file as test.txt '''
 
 
 
+        #look in test.txt file
 
+#printing out a specific line in a file
+
+fl = open ('test.txt', 'r')
+
+result = [i.strip() for i in fl if "line3" in i] #need to strip to get rid of \n --> always do this on the EXPRESSION
+print(result)
 
 #Output: ['this is line3']
 
@@ -133,31 +167,26 @@ Save the file as test.txt '''
 #9) Using functions in list comprehension
 
 # Create a function and name it double:
-
+def double(x):
+    return x*2
 
 # If you now just print that function with a value in it, it should look like this:
-
-
-
+print(double(10))
 # Answer - 20
 
-
 #We can easily use list comprehension on that function.
-
-
-
-
-
+output = [double(x) for x in range(10)]
+print(output)
 # Output - [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 
 
 
 
-
-
 # 10) adding an IF condition to the above
+#only for number divisable by 2 evenly
 
-
+output = [double(x) for x in range(10) if x % 2 == 0]
+print(output)
 
 
 
@@ -166,22 +195,14 @@ Save the file as test.txt '''
 
 
 
-
-
 # 11) You can add more arguments (using multiple iterators and lists):
+answer = [x+y for x in [10,20,30] for y in [20,40,60]]
+print(answer)
 
-
-
+    #EACH value of x is added to EACH value of y
 
 
 # Output - [30, 50, 70, 50, 70, 90, 70, 90, 110]
-
-
-
-
-
-
-
 
 
 
