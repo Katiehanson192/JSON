@@ -26,7 +26,7 @@ for eq in list_of_eqs:
     lats.append(lat)
 
 print(mags)
-'''
+
 print(lons[:10])
 print(lats[:10])
 
@@ -39,4 +39,3 @@ my_layout = Layout(title = 'Global Eatthquakes')
 fig = {'data': data, 'layout': my_layout}
 
 offline.plot(fig, filename= 'global_earthquakes.html')
-'''
